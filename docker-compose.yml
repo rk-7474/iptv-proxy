@@ -6,8 +6,6 @@ services:
       dockerfile: Dockerfile
     container_name: "iptv-proxy"
     restart: on-failure
-    ports:
-      - 8080:8080
     environment:
       M3U_URL: http://cord-cutter.net:8080/get.php?username=30550113&password=30550113&type=m3u
       PORT: 8080
