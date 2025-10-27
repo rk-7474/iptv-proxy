@@ -8,19 +8,19 @@ services:
     restart: on-failure
     network_mode: "service:gluetun"
     environment:
-      M3U_URL: http://cord-cutter.net:8080/get.php?username=30550113&password=30550113&type=m3u
-      PORT: 8080
+      - M3U_URL=${M3U_URL}
+      - PORT=${PORT}
       # Hostname or IP to expose the IPTVs endpoints (for machine not for docker)
-      HOSTNAME: https://tv.spazioidealemaerne.it
-      GIN_MODE: release
+      - HOSTNAME=${HOSTNAME} 
+      - GIN_MODE=release
       ## Xtream-code proxy configuration
       #XTREAM_USER: xtream_user
       #XTREAM_PASSWORD: xtream_password
       #XTREAM_BASE_URL: "http://example.tv:8080"
       ##### UNSAFE AUTH TODO ADD REAL AUTH
       #will be used for m3u and xtream auth poxy
-      USER: test
-      PASSWORD: testpassword
+      - USER=${AUTH_USERNAME}
+      - PASSWORD=${AUTH_PASSWORD}
   gluetun:
     image: qmcgaw/gluetun
     container_name: gluetun
@@ -35,10 +35,7 @@ services:
       - VPN_SERVICE_PROVIDER=protonvpn
       - VPN_TYPE=wireguard
       - WIREGUARD_PRIVATE_KEY=${PROTON_PRIVATE_KEY}
-      - WIREGUARD_ADDRESSES=${PROTON_ADDRESS}
-      - SERVER_COUNTRIES=Switzerland
-      - TZ=America/New_York
-      - FIREWALL_OUTBOUND_SUBNETS=192.168.1.0/24 # Your local subnet
+      - SERVER_COUNTRIES=Netherlands
     volumes:
       - ./gluetun:/gluetun
     restart: unless-stopped
