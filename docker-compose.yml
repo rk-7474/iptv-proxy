@@ -14,9 +14,9 @@ services:
       - HOSTNAME=${HOSTNAME} 
       - GIN_MODE=release
       ## Xtream-code proxy configuration
-      #XTREAM_USER: xtream_user
-      #XTREAM_PASSWORD: xtream_password
-      #XTREAM_BASE_URL: "http://example.tv:8080"
+      - XTREAM_USER=${AUTH_USERNAME}
+      - XTREAM_PASSWORD=${AUTH_PASSWORD}
+      - XTREAM_BASE_URL=https://tv.spazioidealemaerne.it
       ##### UNSAFE AUTH TODO ADD REAL AUTH
       #will be used for m3u and xtream auth poxy
       - USER=${AUTH_USERNAME}
