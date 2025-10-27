@@ -11,7 +11,7 @@ services:
       M3U_URL: http://cord-cutter.net:8080/get.php?username=30550113&password=30550113&type=m3u
       PORT: 8080
       # Hostname or IP to expose the IPTVs endpoints (for machine not for docker)
-      HOSTNAME: localhost
+      HOSTNAME: https://tv.spazioidealemaerne.it
       GIN_MODE: release
       ## Xtream-code proxy configuration
       #XTREAM_USER: xtream_user
